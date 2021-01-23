@@ -1,20 +1,21 @@
 const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
+
 let _db;
 
 const mongoConnect = callback => {
   MongoClient.connect(
-    'mongodb+srv://manojkale:lJEQJ8M3K5a2zYom@cluster0.axfju.mongodb.net/NODEJS-MASTER-COURSE?retryWrites=true&w=majority'
-  )
-  .then(client => {
-    console.log('Connected!');
-    _db = client.db();
-    callback();
-  })
-  .catch(err => {
-    console.log(err);
-    throw err;
-  });
+    'mongodb+srv://manojkale:lJEQJ8M3K5a2zYom@cluster0.axfju.mongodb.net/NODEJS-MASTER-COURSE?retryWrites=true&w=majority',
+    )
+    .then(client => {
+      console.log('Connected!');
+      _db = client.db();
+      callback();
+    })
+    .catch(err => {
+      console.log(err);
+      throw err;
+    });
 };
 
 const getDb = () => {
